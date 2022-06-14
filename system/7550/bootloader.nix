@@ -4,8 +4,12 @@
   # Bootloader.
   boot.plymouth.enable = true;
 
-  boot.kernelParams = [ "quiet" ];
+  boot.kernelParams = [ "quiet" "mem_sleep_default=deep" ];
 
+  boot.kernelModules = [ "acpi_call" ];
+
+  boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
+  
   boot.loader = {
     systemd-boot.enable = true;
     # grub.enable = true;
