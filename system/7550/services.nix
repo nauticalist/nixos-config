@@ -1,13 +1,24 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
-  # Enable touchpad support (enabled default in most desktopManager).
-  hardware.bluetooth = {
+  # Enable the X11 windowing system.
+  services.xserver = {
     enable = true;
-    settings = { General = { Enable = "Source,Sink,Media,Socket"; }; };
+    dpi = 96;
+    videoDrivers = ["nvidia"];
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
+    layout = "us";
+    xkbVariant = "";
   };
 
+  # Enable sound with pipewire.
+  sound.enable = true;
   services.pipewire  = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
     media-session.config.bluez-monitor.rules = [
       {
         # Matches all cards
@@ -35,4 +46,16 @@
       }
     ];
   };
+  
+  services.acpid.enable = true;
+  services.thermald.enable = true;
+  services.fwupd.enable = true;
+  services.vnstat.enable = true;
+  services.tlp.enable = true;
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
+  services.fstrim.enable = true;
+
+  services.flatpak.enable = true;
 }

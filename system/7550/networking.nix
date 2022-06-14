@@ -1,6 +1,7 @@
 { config, ... }:
 
 {
+  # Networking
   networking = {
     # Hostname
     hostName = "solanix";
