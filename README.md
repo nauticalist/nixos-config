@@ -2,3 +2,6 @@
 My basic Nixos config for Dell precision 7550
 
 - TODO: Fix ACPI errors on boot which does not effect system performance
+
+![Desktop Screenhot](/screenshots/desktop.png "Nixos Desktop KDE")
+
