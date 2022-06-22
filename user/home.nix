@@ -23,7 +23,6 @@
 
   home.packages = with pkgs; [
     vlc
-    zoom-us
     jq
     libreoffice-fresh
     jetbrains.goland
@@ -44,6 +43,8 @@
     neofetch
     digikam
     rawtherapee
+    brave
+    gnumake
   ];
 
   programs.bash = {
